@@ -125,15 +125,12 @@ function alertaSweet(){
         return respuesta.text()
       })
       .then((respuesta)=>{
-        document.querySelector('#carrito-comprado').innerHTML= `
-        
-        <div>
-        <img src="./images/logoblanco.png" style="width: 300px; height: 300px;" alt="logo"> 
-        <h3>Muchas gracias por tu compra</h3>
-        </div>
-
-        `
+        document.querySelector('#carrito-comprado').innerHTML= respuesta
       })
+      .catch((err)=>{
+        alert(err)
+      })
+      
 }
 
 
