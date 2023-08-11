@@ -9,6 +9,8 @@ let botonesEliminar = document.querySelectorAll(".carrito-producto-eliminar")
 const botonVaciar = document.querySelector("#carrito-acciones-vaciar")
 const contenedorTotal = document.querySelector("#total")
 const botonComprar = document.querySelector("#carrito-acciones-comprar")
+const sweet = document.querySelector("#carrito-acciones-comprar")
+
 
 function cargarProductosCarrito() {
     if (productosEnCarrito && productosEnCarrito.length > 0){
@@ -105,4 +107,33 @@ function comprarCarrito(){
     contenedorCarritoProductos.classList.add("d-none")        
     contenedorCarritoAcciones.classList.add("d-none")
     contenedorCarritoComprado.classList.remove("d-none")
+    alertaSweet()
 }
+
+
+sweet.addEventListener('click', alertaSweet)
+
+function alertaSweet(){
+    Swal.fire({
+        icon: 'success',
+        title: 'Tu compra fue realizada con éxito',
+        text: '¡Vuelva pronto!',
+      })
+
+      fetch('datos.txt')
+      .then((respuesta)=>{
+        return respuesta.text()
+      })
+      .then((respuesta)=>{
+        document.querySelector('#carrito-comprado').innerHTML= `
+        
+        <div>
+        <img src="./images/logoblanco.png" style="width: 300px; height: 300px;" alt="logo"> 
+        <h3>Muchas gracias por tu compra</h3>
+        </div>
+
+        `
+      })
+}
+
+

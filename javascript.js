@@ -160,4 +160,13 @@ function agregarAlCarrito(e){
 function actualizarNumerito() {
     let nuevoNumerito = productosEnCarrito.reduce((acc, producto) => acc + producto.cantidad, 0)
     numerito.innerText = nuevoNumerito
+    if(nuevoNumerito){
+        Toastify({
+            text: "Agregaste un producto al carrito",
+            className: "info",
+            style: {
+              background: "linear-gradient(to right, grey, black)",
+            }
+          }).showToast();
+    }
 }

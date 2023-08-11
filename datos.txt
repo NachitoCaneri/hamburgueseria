@@ -1,0 +1,4 @@
+<div>
+        <h3>Muchas gracias por tu compra</h3>
+        <img src="./images/logo.png" alt=""> 
+        </div>
